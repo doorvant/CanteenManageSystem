@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="{% static 'css/common/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/food.css' %}">
+    <link rel="stylesheet" href="{% static 'css/common/subBar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/common/navBar.css' %}">
+</head>
+<body>
+  <div>
+        <div id="background" style="position:absolute; width:100%; height:100%; background-color: snow; z-index:-1" >
+            <img src="{% static 'images/background2.png' %}" height="100%" width="100%">
+        </div>
+        <div id="subBar">
+            <a href="#">
+                <img src="{% static 'images/logo2.png' %}" class="logo">
+            </a>
+            <div class="message">
+                <p>欢迎您:deardoor</p>
+                <p>会员等级:1</p>
+                <p>手机号:</p>
+                <p>12345654321</p>
+            </div>
+            <form action="" method="post">
+            {% csrf_token %}
+                <ul class="action">
+                    <li><button name="ordered"><span class="iconfont">&#xe73d;</span></button>已点</li>
+                    <li><button name="menu"><span class="iconfont">&#xe644;</span></button>菜单</li>
+                    <li><button name="score"><span class="iconfont">&#xe603;</span></button>评分</li>
+                    <li><button name="exit"><span class="iconfont">&#xe60c;</span></button>退出</li>
+                </ul>
+            </form>
+        </div>
+        <div id="navBar">
+            <form action="" method="post">
+                {% csrf_token %}
+              <ul class="navWrap">
+                <li class="active">
+                    <button name="c1"><span class="iconfont">&#xe73d;</span></button>
+                    <span class="text">已点</span>
+                </li>
+            </ul>
+            </form>
+        </div>
+        <div id="content">
+            <form action="" method="post">
+                {% csrf_token %}
+                <p>
+                    <input type="hidden" name="wId" value="{{ w_obj.wid }}">
+                </p>
+                <p>
+                    评分 <input type="text" name="score" value="{{ w_obj.score }}">
+                </p>
+                <p>
+                    <button type="submit" class="btn">提交</button>
+                </p>
+            </form>
+        </div>
+  </div>
+</body>
+</html>

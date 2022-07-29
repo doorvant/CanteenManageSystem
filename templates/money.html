@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="{% static 'css/common/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/food.css' %}">
+    <link rel="stylesheet" href="{% static 'css/common/subBar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/common/navBar.css' %}">
+</head>
+<body>
+  <div>
+        <div id="background" style="position:absolute; width:100%; height:100%; background-color: snow; z-index:-1" >
+            <img src="{% static 'images/background2.png' %}" height="100%" width="100%">
+        </div>
+        <div id="subBar">
+            <a href="#">
+                <img src="{% static 'images/logo2.png' %}" class="logo">
+            </a>
+            <div class="message">
+                <p>欢迎您:</p>
+                <p>尊敬的</p>
+                <p>帅气的</p>
+                <p>管理员</p>
+            </div>
+            <form action="" method="post">
+            {% csrf_token %}
+                <ul class="action">
+                    <li><button name="manage"><span class="iconfont">&#xe603;</span></button>管理</li>
+                    <li><button name="add"><span class="iconfont">&#xe726;</span></button>添加</li>
+                    <li><button name="money"><span class="iconfont">&#xe612;</span></button>收入</li>
+                    <li><button name="exit"><span class="iconfont">&#xe60c;</span></button>退出</li>
+                </ul>
+            </form>
+        </div>
+        <div id="navBar">
+            <ul class="navWrap">
+                <li class="active">
+                    <span class="iconfont">&#xe603;</span>
+                    <span class="text">菜品管理</span>
+                </li>
+            </ul>
+            <form action="" method="post">
+            {% csrf_token %}
+            <div class="search">
+                <input type="text" name="foodcate">
+                <button name="search">
+                    <span class="iconfont">&#xe617;</span>
+                </button>
+            </div>
+            </form>
+        </div>
+        <div id="content">
+            <table border="1" class="foodlist">
+                <thead>
+                <tr>
+                    <th>菜名</th>
+                    <th>总销售额</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for foodMoney in foodMoney_list %}
+                        <tr>
+                            <td>{{ foodMoney.foodname }}</td>
+                            <td>{{ foodMoney.foodmoney }}</td>
+                        </tr>
+                    {% endfor %}
+                    {% for goodMoney in goodMoney_list %}
+                        <tr>
+                            <td>{{ goodMoney.goodname }}</td>
+                            <td>{{ goodMoney.goodmoney }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+  </div>
+</body>
+</html>

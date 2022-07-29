@@ -1,0 +1,61 @@
+#wrap{
+    height: 100vh; 
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+}
+.logo{
+    width: 400px;
+}
+#wrap p{
+    width: 400px;
+    display: flex;
+    margin-bottom: 30px;
+    background: #fff;
+    font-size: 20px;
+    border-radius: 30px;
+    line-height: 40px;
+    position: relative;
+}
+#wrap label{
+    width: 100px;
+    background: #4bc2c5;
+    color: #fff;
+    text-align: center;
+    border-radius: 30px;
+    font-size: 15px;
+}
+#wrap input{
+    width: 100%;
+    border: none;
+    font-size: 15px;
+    color: #000;
+    padding-left: 10px;
+    border-radius: 0 30px 30px 0;
+}
+
+input::placeholder{
+    color: #ccc;
+    font-size: 15px;
+}
+#wrap button{
+    width: 100px;
+    height: 40px;
+    margin: 0 10px;
+    background: #4bc2c5;
+    border-radius: 30px;
+
+    font-size: 15px;
+    color: #fff;
+}
+#wrap button:nth-child(2){
+    width: 100px;
+    height: 40px;
+    margin: 0 10px;
+    background: #78fee0;
+    border-radius: 30px;
+
+    font-size: 15px;
+    color: #fff;
+} 

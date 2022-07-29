@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="{% static 'css/common/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/food.css' %}">
+    <link rel="stylesheet" href="{% static 'css/common/subBar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/common/navBar.css' %}">
+</head>
+<body>
+  <div>
+        <div id="background" style="position:absolute; width:100%; height:100%; background-color: snow; z-index:-1" >
+            <img src="{% static 'images/background2.png' %}" height="100%" width="100%">
+        </div>
+        <div id="subBar">
+            <a href="#">
+                <img src="{% static 'images/logo2.png' %}" class="logo">
+            </a>
+            <div class="message">
+                <p>欢迎您:</p>
+                <p>尊敬的</p>
+                <p>帅气的</p>
+                <p>管理员</p>
+            </div>
+            <form action="" method="post">
+            {% csrf_token %}
+                <ul class="action">
+                    <li><button name="manage"><span class="iconfont">&#xe603;</span></button>管理</li>
+                    <li><button name="add"><span class="iconfont">&#xe726;</span></button>添加</li>
+                    <li><button name="money"><span class="iconfont">&#xe612;</span></button>收入</li>
+                    <li><button name="exit"><span class="iconfont">&#xe60c;</span></button>退出</li>
+                </ul>
+            </form>
+        </div>
+        <div id="navBar">
+            <ul class="navWrap">
+                <li class="active">
+                    <span class="iconfont">&#xe603;</span>
+                    <span class="text">菜品管理</span>
+                </li>
+            </ul>
+            <form action="" method="post">
+            {% csrf_token %}
+            <div class="search">
+                <input type="text" name="foodcate">
+                <button name="search">
+                    <span class="iconfont">&#xe617;</span>
+                </button>
+            </div>
+            </form>
+        </div>
+        <div id="content">
+            <table border="1" class="foodlist">
+                <thead>
+                <tr>
+                    <th>菜品id</th>
+                    <th>菜名</th>
+                    <th>单价</th>
+                    <th>销售量</th>
+                    <th>详情</th>
+                    <th>分类</th>
+                    <th>所属窗口编号</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for food_obj in food_obj_list %}
+                        <tr>
+<!--                            <td>{{ foorloop.counter }}</td>-->
+                            <td>{{ food_obj.foodid }}</td>
+                            <td>{{ food_obj.foodname }}</td>
+                            <td>{{ food_obj.foodprice }}</td>
+                            <td>{{ food_obj.foodsold }}</td>
+                            <td>{{ food_obj.foodinfo }}</td>
+                            <td>{{ food_obj.foodcate }}</td>
+                            <td>{{ food_obj.wid }}</td>
+                            <td>
+                                <a href="http://127.0.0.1:8000/edit_food/?foodid={{ food_obj.foodid }}">修改</a>
+                            </td>
+                            <td>
+                                <a href="http://127.0.0.1:8000/delete_food/?foodid={{ food_obj.foodid }}">删除</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+  </div>
+</body>
+</html>

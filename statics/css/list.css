@@ -1,0 +1,91 @@
+
+
+body{
+    background: url(../images/background2.png) no-repeat;
+    background-size: cover cover;
+    background-attachment: fixed;
+}
+
+#content{
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    bottom: 20px;
+    left: 200px;
+    background: rgba(0, 0, 0, .1);
+
+    box-sizing: border-box;
+    padding: 10px;
+
+    overflow: hidden;
+}
+
+.orderbox{
+    width: 95%;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+.orderbox li{
+    background: rgba(0, 0, 0, .1);
+    box-shadow: 0 3px 3px rgba(107, 102, 102, .5);
+    margin-bottom: 40px;
+    padding: 15px;
+}
+
+.orderbox table{
+    width: 100%;
+}
+.orderbox tr{
+    border-bottom: 1px solid rgba(0, 0, 0, .5);
+}
+.orderbox td{
+    padding: 10px 0;
+    text-align: center;
+}
+.orderbox td:nth-child(1){
+    width: 5%;
+}
+
+.orderbox button{
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+}
+.orderbox button span{
+    font-size: 12px;
+}
+.orderbox .number{
+    width: 60px;
+    height: 30px;
+    line-height: 30px;
+    display: inline-block;
+    box-sizing: border-box;
+    vertical-align: middle;
+    font-size: 12px;
+}
+.orderbox .foot{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 10px 0;
+}
+.orderbox .foot span{
+    margin-right: 40px;
+}
+.orderbox .foot strong{
+    color: #ff502f;
+    font-size: 18px;
+}
+.orderbox .addfood{
+    width: 50px;
+    height: 25px;
+    background: #4bc2c5;
+    border-radius: 15px;
+    border: none;
+}
+.orderbox .pay{
+    width: 80px;
+    height: 30px;
+    background: #00a03e;
+    border-radius: 20px;
+    border: none;
+}

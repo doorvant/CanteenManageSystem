@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="{% static 'css/common/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+    <div id="background" style="position:absolute; width:100%; height:100%; background-color: snow; z-index:-1" >
+            <img src="{% static 'images/background.png' %}" height="100%" width="100%">
+    </div>
+    <div id="wrap">
+        <img src="{% static 'images/logo.png' %}" class="logo">
+        <form action="" method="post">
+            {% csrf_token %}
+            <p>
+                <label for="username">账号</label>
+                <input type="text" id="username" name="username" placeholder="请输入用户名">
+            </p>
+            <p>
+                <label for="password">密码</label>
+                <input type="password" id="password" name="password" placeholder="请输入密码">
+            </p>
+            <div>
+                <button name="user">用户登录</button>
+                <button name="admin">管理员登录</button>
+            </div>
+        </form>
+    </div>
+
+    {% if messages %}
+        <script>
+        {% for msg in messages %}
+            alert('{{ msg.message }}');
+        {% endfor %}
+        </script>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="{% static 'css/common/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/food.css' %}">
+    <link rel="stylesheet" href="{% static 'css/common/subBar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/common/navBar.css' %}">
+</head>
+<body>
+  <div>
+        <div id="background" style="position:absolute; width:100%; height:100%; background-color: snow; z-index:-1" >
+            <img src="{% static 'images/background2.png' %}" height="100%" width="100%">
+        </div>
+        <div id="subBar">
+            <a href="#">
+                <img src="{% static 'images/logo2.png' %}" class="logo">
+            </a>
+            <div class="message">
+                <p>欢迎您:</p>
+                <p>尊敬的</p>
+                <p>帅气的</p>
+                <p>管理员</p>
+            </div>
+            <form action="" method="post">
+            {% csrf_token %}
+                <ul class="action">
+                    <li><button name="manage"><span class="iconfont">&#xe603;</span></button>管理</li>
+                    <li><button name="add"><span class="iconfont">&#xe726;</span></button>添加</li>
+                    <li><button name="money"><span class="iconfont">&#xe612;</span></button>收入</li>
+                    <li><button name="exit"><span class="iconfont">&#xe60c;</span></button>退出</li>
+                </ul>
+            </form>
+        </div>
+        <div id="navBar">
+            <ul class="navWrap">
+                <li class="active">
+                    <span class="iconfont">&#xe603;</span>
+                    <span class="text">菜品管理</span>
+                </li>
+            </ul>
+        </div>
+        <div id="content">
+            <form action="" method="post">
+                {% csrf_token %}
+                <p>
+                    <input type="hidden" name="foodId" value="{{ food_obj.foodid }}">
+                </p>
+                <p>
+                    菜名 <input type="text" name="foodName" value="{{ food_obj.foodname }}">
+                </p>
+                <p>
+                    单价 <input type="text" name="foodPrice" value="{{ food_obj.foodprice }}">
+                </p>
+                <p>
+                    分类 <input type="text" name="foodCate" value="{{ food_obj.foodcate }}">
+                </p>
+                <p>
+                    详情 <input type="text" name="foodInfo" value="{{ food_obj.foodinfo }}">
+                </p>
+                <p>
+                    所属窗口id <input type="text" name="wId" value="{{ food_obj.wid }}">
+                </p>
+                <p>
+                    <button type="submit" class="btn">提交</button>
+                </p>
+            </form>
+        </div>
+  </div>
+</body>
+</html>

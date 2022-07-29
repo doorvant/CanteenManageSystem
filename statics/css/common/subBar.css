@@ -1,0 +1,69 @@
+#subBar{
+    width: 200px;
+    height: 100vh;
+    position: fixed;
+}
+.logo{
+    width: 100%;
+    display: block;
+    margin: 0px auto;
+}
+.message{
+    width: 150px;
+    box-sizing: border-box;
+    padding: 20px 0;    
+    margin: 0 auto 20px;
+
+    color: #000;
+    line-height: 30px;
+    text-align: center;
+    position: relative;
+}
+.message::before, .message::after, .action::before, .action::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    left: 0;
+    background: linear-gradient(90deg, transparent, #4bc2c5, transparent);  
+}
+.message::before{
+    top: 0;
+}
+.message::after{
+    bottom: 0;
+}
+.action{
+    height: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+}
+.action li{
+    width: 50%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    color: #000;
+    font-size: 15px;
+    cursor: pointer;
+    position: relative;
+}
+.action span{
+    font-size: 30px;
+    margin-bottom: 5px;
+}
+.action li:hover{
+    color: #00a03e;
+}
+
+.action::before{
+    top: 50%;
+}
+.action::after{
+    top: 50%;   
+    transform: rotate(90deg);
+}

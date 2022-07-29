@@ -1,0 +1,49 @@
+#navBar{
+    position: fixed;
+    left: 200px;
+    right: 0;
+    
+    height: 80px;
+    padding: 0 20px;
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navWrap{
+    display: flex;
+}
+.navWrap li{
+    font-size: 18px;
+    margin-right: 40px;
+    cursor: pointer;
+}
+.navWrap li:hover{
+    color: #00a03e;
+}
+.navWrap li span.iconfont{
+    font-size: 25px;
+    margin-right: 5px;
+}
+.search{
+    width: 200px;
+    height: 30px;
+    box-sizing: border-box;
+    display: flex;
+    border: 1px solid;
+    border-radius: 50px;
+}
+.search input{
+    background: none;
+    border: none;
+    width: 160px;
+    font-size: 15px;
+    padding-left: 15px;
+}
+.search button{
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

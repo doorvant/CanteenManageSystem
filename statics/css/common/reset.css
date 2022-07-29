@@ -1,0 +1,41 @@
+body,p,h2,h3{
+    margin: 0;
+}
+button,input{
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+button{
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+label,input{
+    vertical-align: middle;
+}
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+table{
+    border-collapse: collapse;
+}
+
+@font-face {
+  font-family: 'iconfont';  /* Project id 2873482 */
+  src: url('https://at.alicdn.com/t/font_2873482_qi278qlzn6.woff2?t=1635849371950') format('woff2'),
+       url('https://at.alicdn.com/t/font_2873482_qi278qlzn6.woff?t=1635849371950') format('woff'),
+       url('https://at.alicdn.com/t/font_2873482_qi278qlzn6.ttf?t=1635849371950') format('truetype');
+}
+.iconfont {
+    font-family: "iconfont";
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}

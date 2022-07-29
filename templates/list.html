@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="{% static 'css/common/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/list.css' %}">
+    <link rel="stylesheet" href="{% static 'css/common/subBar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/common/navBar.css' %}">
+</head>
+<body>
+    <div>
+        <div id="background" style="position:absolute; width:100%; height:100%; background-color: snow; z-index:-1" >
+            <img src="{% static 'images/background2.png' %}" height="100%" width="100%">
+        </div>
+        <div id="subBar">
+            <a href="#">
+                <img src="{% static 'images/logo2.png' %}" class="logo">
+            </a>
+            <div class="message">
+                <p>欢迎您:deardoor</p>
+                <p>会员等级:1</p>
+                <p>手机号:</p>
+                <p>12345654321</p>
+            </div>
+            <form action="" method="post">
+            {% csrf_token %}
+                <ul class="action">
+                    <li><button name="ordered"><span class="iconfont">&#xe73d;</span></button>已点</li>
+                    <li><button name="menu"><span class="iconfont">&#xe644;</span></button>菜单</li>
+                    <li><button name="score"><span class="iconfont">&#xe603;</span></button>评分</li>
+                    <li><button name="exit"><span class="iconfont">&#xe60c;</span></button>退出</li>
+                </ul>
+            </form>
+        </div>
+        <div id="navBar">
+            <form action="" method="post">
+                {% csrf_token %}
+              <ul class="navWrap">
+                <li class="active">
+                    <button name="c1"><span class="iconfont">&#xe73d;</span></button>
+                    <span class="text">已点</span>
+                </li>
+            </ul>
+            </form>
+        </div>
+        <div id="content">
+           <ul class="orderbox">
+                <li>
+                    {% for order_food in order_food_list %}
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{ order_food.foodname }}</td>
+                                <td>
+                                        <button><span class="iconfont">&#xe62a;</span></button>
+                                        <span class="number">{{ order_food.foodnum }}</span>
+                                        <button><span class="iconfont">&#xe726;</span></button>
+                                </td>
+                                <td>￥{{ order_food.foodprice }} × {{ order_food.foodnum }}</td>
+                                <td>
+                                    <button class="select">
+                                        <span><a href="http://127.0.0.1:8000/delete_order/?foodid={{ order_food.foodid }}&orderid={{ order_food.orderid }}">删除</a></span>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    {% endfor %}
+                    <table><tbody><tr><td>其它</td></tr></tbody></table>
+                    {% for order_good in order_good_list %}
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{ order_good.goodname }}</td>
+                                <td>
+                                        <button><span class="iconfont">&#xe62a;</span></button>
+                                        <span class="number">{{ order_good.goodnum }}</span>
+                                        <button><span class="iconfont">&#xe726;</span></button>
+                                </td>
+                                <td>￥{{ order_good.goodprice }} × {{ order_good.goodnum }}</td>
+                                <td>
+                                    <button class="select">
+                                        <span><a href="http://127.0.0.1:8000/delete_order/?foodid={{ order_good.goodid }}&orderid={{ order_good.orderid }}">删除</a></span>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    {% endfor %}
+                    <form action="" method="post">
+                        {% csrf_token %}
+                    <div class="foot">
+                        <div>
+                            <span>订单号: {{ order_obj.orderid }}</span>
+                            <button class="addfood" name="addfood">添菜</button>
+                        </div>
+                        <div>
+                            <span>总消费：￥<strong>{{ order_obj.ordersum }}</strong></span>
+                            <button class="pay" name="pay">下单</button>
+                        </div>
+                    </div>
+                    </form>
+                </li>
+           </ul>
+        </div>
+    </div>
+</body>
+</html>
